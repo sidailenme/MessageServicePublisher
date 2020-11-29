@@ -1,0 +1,6 @@
+server:
+  port: 5550
+
+spring:
+  config:
+    target-url: http://localhost:5551
