@@ -27,10 +27,11 @@ public class MessageSenderImpl implements MessageSender, Runnable {
     public void sendMessage() {
         Message message = messageGenerator.generate();
         RestTemplate restTemplate = new RestTemplate();
+        System.out.println("Send message: " + message);
         try {
             ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, message, String.class);
         } catch (RestClientException e) {
-            System.out.println("WARN: Сообщение не отправлено");
+            System.out.println("Message with id " + message.getId() + " not sent");
         }
     }
 
